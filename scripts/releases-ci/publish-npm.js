@@ -63,7 +63,9 @@ async function main() {
   // $FlowFixMe[prop-missing]
   const buildType = argv.builtType;
 
-  await publishNpm(buildType);
+  const {version, tag} = getNpmInfo(buildType);
+  console.log(version);
+  // await publishNpm(buildType);
 }
 
 async function publishMonorepoPackages(tag /*: ?string */) {
